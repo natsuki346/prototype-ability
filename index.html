@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#2764d8" />
+  <title>Ability — 状態の気づきプロトタイプ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">A</span><span>Ability</span></div>
+      <div class="prototype-pill"><span class="status-dot"></span>サンプルデータ・実機未接続</div>
+    </header>
+
+    <main id="app" class="main-content" aria-live="polite"></main>
+
+    <nav class="bottom-nav" aria-label="メインナビゲーション">
+      <button class="nav-item is-active" data-screen="now"><span class="nav-icon">◉</span><span>Just now</span></button>
+      <button class="nav-item" data-screen="past"><span class="nav-icon">↺</span><span>Past</span></button>
+      <button class="nav-item" data-screen="trends"><span class="nav-icon">▥</span><span>傾向</span></button>
+    </nav>
+  </div>
+  <div id="toast" class="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
