@@ -129,6 +129,14 @@ textarea:focus { border-color: var(--blue); box-shadow: 0 0 0 3px var(--blue-sof
 .toast { position: fixed; z-index: 20; left: 50%; bottom: 88px; transform: translate(-50%, 20px); opacity: 0; pointer-events: none; background: #17233c; color: white; padding: 11px 15px; border-radius: 9px; font-size: 12px; transition: .2s ease; }
 .toast.is-visible { opacity: 1; transform: translate(-50%, 0); }
 .empty { padding: 28px; text-align: center; color: var(--muted); }
+.mood-hero { padding: 46px 0 24px; }
+.mood-face { width: min(70vw, 250px); height: min(70vw, 250px); margin: 0 auto; font-family: "Apple Color Emoji", "Segoe UI Emoji", sans-serif; font-size: min(42vw, 172px); letter-spacing: 0; padding: 0; display: grid; place-items: center; }
+.mood-heading { color: var(--ink); font-size: clamp(24px, 5vw, 32px); margin: 24px 0 0; letter-spacing: -.05em; }
+.inference-block { width: min(100%, 470px); margin: 0 auto; }
+.inference-heading { display: flex; justify-content: space-between; align-items: baseline; padding: 0 4px 8px; border-bottom: 1px solid var(--line); }
+.inference-heading h2 { font-size: 14px; }
+.inference-heading small { color: var(--muted); font-size: 10px; }
+.inference-block .candidate-list { border-top: 0; padding-top: 12px; }
 .topbar { height: 54px; padding: 0 max(16px, calc((100vw - 780px) / 2)); }
 .prototype-pill { font-size: 10px; }
 .language-switch { display: flex; align-items: center; gap: 4px; color: var(--muted); font-size: 10px; }
@@ -148,6 +156,12 @@ textarea:focus { border-color: var(--blue); box-shadow: 0 0 0 3px var(--blue-sof
 .candidate-row small { color: var(--muted); font-size: 12px; }
 .candidate-bar { height: 6px; margin-top: 7px; background: #edf1f7; border-radius: 8px; overflow: hidden; }
 .candidate-bar span { display: block; height: 100%; background: var(--blue); border-radius: inherit; }
+.candidate-row.calm .candidate-bar span { background: #4b78d1; }
+.candidate-row.calm small { color: #4b78d1; }
+.candidate-row.tense .candidate-bar span { background: #df875e; }
+.candidate-row.tense small { color: #c86f4c; }
+.candidate-row.happy .candidate-bar span { background: #d7ab42; }
+.candidate-row.happy small { color: #b38724; }
 .sample-score-note, .now-disclaimer { color: var(--muted); font-size: 10px; line-height: 1.6; margin: 12px 0 0; }
 .now-disclaimer { text-align: center; margin-bottom: 20px; }
 .time-card { padding-bottom: 15px; }
@@ -208,4 +222,18 @@ textarea:focus { border-color: var(--blue); box-shadow: 0 0 0 3px var(--blue-sof
   .stat-block { padding: 12px 10px; }
   .stat-number { font-size: 22px; }
   .card { padding: 16px; }
+}
+/* Now's mood-first layout overrides the earlier prototype card styles. */
+.now-screen .mood-hero { padding: clamp(80px, 12vh, 120px) 0 24px; }
+.now-screen .mood-face { width: min(70vw, 250px); height: min(70vw, 250px); margin: 0 auto; font-family: "Apple Color Emoji", "Segoe UI Emoji", sans-serif; font-size: min(42vw, 172px); letter-spacing: 0; padding: 0; display: grid; place-items: center; }
+.now-screen .mood-heading { color: var(--ink); font-size: clamp(24px, 5vw, 32px); margin: 24px 0 0; letter-spacing: -.05em; }
+.now-screen .inference-block { width: min(100%, 470px); margin: clamp(52px, 8vh, 80px) auto 0; }
+.now-screen .inference-heading { display: flex; justify-content: space-between; align-items: baseline; padding: 0 4px 8px; border-bottom: 1px solid var(--line); }
+.now-screen .inference-heading h2 { font-size: 14px; }
+.now-screen .inference-heading small { color: var(--muted); font-size: 10px; }
+.now-screen .inference-block .candidate-list { border-top: 0; padding-top: 12px; }
+@media (max-width: 720px) {
+  .now-screen .mood-face { width: min(70vw, 220px); height: min(70vw, 220px); font-size: min(42vw, 150px); }
+  .now-screen .mood-hero { padding-top: clamp(82px, 14vh, 118px); }
+  .now-screen .inference-block { margin-top: clamp(48px, 8vh, 76px); }
 }
