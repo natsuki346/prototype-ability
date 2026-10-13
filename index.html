@@ -13,16 +13,16 @@
 <body>
   <div class="app-shell">
     <header class="topbar">
-      <div class="brand"><span class="brand-mark">A</span><span>Ability.</span></div>
-      <div class="prototype-pill"><span class="status-dot"></span>サンプルデータ・実機未接続</div>
+      <div class="prototype-pill"><span class="status-dot"></span><span data-copy="sample">サンプル</span></div>
+      <div class="language-switch" aria-label="Language"><button data-lang="ja">日本語</button><span>/</span><button data-lang="en">EN</button></div>
     </header>
 
     <main id="app" class="main-content" aria-live="polite"></main>
 
     <nav class="bottom-nav" aria-label="メインナビゲーション">
-      <button class="nav-item is-active" data-screen="now"><span class="nav-icon">◉</span><span>Just now</span></button>
+      <button class="nav-item is-active" data-screen="now"><span class="nav-icon">◉</span><span>Now</span></button>
       <button class="nav-item" data-screen="past"><span class="nav-icon">↺</span><span>Past</span></button>
-      <button class="nav-item" data-screen="trends"><span class="nav-icon">▥</span><span>傾向</span></button>
+      <button class="nav-item" data-screen="report"><span class="nav-icon">▥</span><span>Report</span></button>
     </nav>
   </div>
   <div id="toast" class="toast" role="status"></div>
