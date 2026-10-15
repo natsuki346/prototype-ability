@@ -1,5 +1,7 @@
 export type SensorId = "ppg" | "gsr" | "temperature" | "acceleration" | "gyroscope";
 export type ScaleMode = "auto" | "fixed";
+export type WearState = "NOT_WORN" | "WORN" | "DISCONNECTED";
+export type SessionStatus = "IDLE" | "RECORDING" | "INTERRUPTED" | "COMPLETED";
 
 export type SensorSample = {
   sampledAt: number;
@@ -21,6 +23,22 @@ export type SensorDefinition = {
 };
 
 export type SensorDataSource = {
-  readDueSamples(now: number): SensorSample[];
+  readDueSamples(now: number, wallClockNow?: number): SensorSample[];
   reset(): void;
+};
+
+export type SessionInterruption = {
+  startedAt: number;
+  endedAt: number | null;
+};
+
+export type MeasurementSession = {
+  sessionId: string;
+  startedAt: number;
+  endedAt: number | null;
+  status: SessionStatus;
+  elapsedTime: number;
+  dataAcquisitionTime: number;
+  sensorSamples: SensorSample[];
+  interruptions: SessionInterruption[];
 };

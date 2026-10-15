@@ -21,7 +21,7 @@ export class MockSensorSource implements SensorDataSource {
     this.nextDue = Object.fromEntries(SENSOR_DEFINITIONS.map((definition) => [definition.id, 0])) as Record<SensorId, number>;
   }
 
-  readDueSamples(now: number): SensorSample[] {
+  readDueSamples(now: number, wallClockNow = Date.now()): SensorSample[] {
     const elapsed = now - this.startedAt;
     const samples: SensorSample[] = [];
     this.phase += 0.012;
@@ -29,7 +29,8 @@ export class MockSensorSource implements SensorDataSource {
     for (const definition of SENSOR_DEFINITIONS) {
       while (elapsed >= this.nextDue[definition.id]) {
         const sampleTime = now - (elapsed - this.nextDue[definition.id]);
-        samples.push({ sampledAt: sampleTime, sensor: definition.id, values: this.valuesFor(definition.id, this.nextDue[definition.id] / 1000) });
+        const sampledAt = wallClockNow - (elapsed - this.nextDue[definition.id]);
+        samples.push({ sampledAt, sensor: definition.id, values: this.valuesFor(definition.id, this.nextDue[definition.id] / 1000) });
         this.nextDue[definition.id] += definition.periodMs;
       }
     }
