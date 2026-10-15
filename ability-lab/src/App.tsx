@@ -1,9 +1,10 @@
+"use client";
+
 import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { appendSamples, cloneSeries, createSeriesStore, type SeriesStore } from "./data-buffer";
 import { MockSensorSource, SENSOR_DEFINITIONS } from "./sensors";
 import { SignalChart } from "./SignalChart";
 import type { ScaleMode, SensorId } from "./types";
-import "./styles.css";
 
 const MAX_POINTS = 3000;
 const DISPLAY_INTERVAL_MS = 100;

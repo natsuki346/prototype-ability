@@ -2,7 +2,6 @@ import { useEffect, useRef } from "react";
 import uPlot, { type AlignedData } from "uplot";
 import type { ScaleMode, SensorDefinition } from "./types";
 import type { SensorSeries } from "./data-buffer";
-import "uplot/dist/uPlot.min.css";
 
 type SignalChartProps = { sensor: SensorDefinition; series: SensorSeries; expanded: boolean; scaleMode: ScaleMode };
 
